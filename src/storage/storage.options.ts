@@ -9,7 +9,6 @@
 export interface StorageModuleOptions {
   region: string;
   endpoint: string;
-  publicEndpoint: string;
   accessKeyId: string;
   secretAccessKey: string;
   bucket: string;
