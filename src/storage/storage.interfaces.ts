@@ -15,4 +15,6 @@ export interface FileStorage {
   }>;
 
   getSignedDownloadUrl(params: { key: string }): Promise<string>;
+
+  getPublicUrl(params: { key: string }): string;
 }

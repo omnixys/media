@@ -39,6 +39,10 @@ export class MinioStorageService implements FileStorage {
     });
   }
 
+  private buildPublicUrl(key: string): string {
+    return `${this.options.publicUrl}/${this.options.bucket}/${key}`;
+  }
+
   /**
    * Upload file directly via backend
    */
@@ -50,10 +54,11 @@ export class MinioStorageService implements FileStorage {
           Key: params.key,
           Body: params.buffer,
           ContentType: params.contentType,
+          CacheControl: 'public, max-age=31536000, immutable',
         }),
       );
 
-      return `${this.options.publicUrl}/${params.key}`;
+      return this.buildPublicUrl(params.key);
     } catch (error) {
       this.logger.error('Upload failed', error);
       throw new InternalServerErrorException('File upload failed');
@@ -95,12 +100,12 @@ export class MinioStorageService implements FileStorage {
       });
 
       const uploadUrl = await getSignedUrl(this.client, command, {
-        expiresIn: 60,
+        expiresIn: this.options.linkTTL,
       });
 
       return {
         uploadUrl,
-        fileUrl: `${this.options.publicUrl}/${params.key}`,
+        fileUrl: this.buildPublicUrl(params.key),
       };
     } catch (error) {
       this.logger.error('Signed upload URL failed', error);
@@ -118,7 +123,6 @@ export class MinioStorageService implements FileStorage {
       );
 
       const stream = response.Body as Readable;
-
       const chunks: Buffer[] = [];
 
       return await new Promise((resolve, reject) => {
@@ -143,11 +147,15 @@ export class MinioStorageService implements FileStorage {
       });
 
       return await getSignedUrl(this.client, command, {
-        expiresIn: 60,
+        expiresIn: this.options.linkTTL,
       });
     } catch (error) {
       this.logger.error('Signed download URL failed', error);
       throw new InternalServerErrorException('Failed to create download URL');
     }
+  }
+
+  getPublicUrl(params: { key: string }): string {
+    return this.buildPublicUrl(params.key);
   }
 }
