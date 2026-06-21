@@ -12,7 +12,6 @@ export interface StorageModuleOptions {
   accessKeyId: string;
   secretAccessKey: string;
   bucket: string;
-  publicUrl: string;
   linkTTL: number;
 
   /**

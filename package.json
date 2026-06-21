@@ -20,7 +20,10 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
+    "prebuild": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "build": "tsc -p tsconfig.json",
+    "test": "pnpm run build && pnpm run test:types && node --test test/*.test.mjs",
+    "test:types": "tsc -p tsconfig.type-tests.json",
     "format": "prettier --cache --write \"src/**/*.{ts,js,json,prisma,md,yaml}\"",
     "clean": "rimraf dist",
     "build:tsup": "tsup src/index.ts --format esm,cjs --dts",
@@ -45,16 +48,24 @@
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@swc/core": "^1.15.21",
     "@types/node": "^25.6.0",
+    "@nestjs/common": "^11.1.17",
+    "@omnixys/context": "file:../context",
+    "@omnixys/logger": "file:../logger",
     "prettier": "^3.8.1",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-sort-imports": "^1.8.11",
-    "semantic-release": "^25.0.3"
+    "reflect-metadata": "^0.2.2",
+    "semantic-release": "^25.0.3",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1037.0",
     "@aws-sdk/s3-request-presigner": "^3.1037.0"
   },
   "peerDependencies": {
-    "@nestjs/common": "^11.0.0"
+    "@nestjs/common": "^11.0.0",
+    "@omnixys/context": "^1.0.0",
+    "@omnixys/logger": "^1.0.0",
+    "reflect-metadata": "^0.2.2"
   }
 }
