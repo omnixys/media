@@ -16,13 +16,13 @@
 
 # dependencies
 node_modules/
+node_profiles/
 
 # build output
 dist/
 build/
 
 # logs
-log/
 logs/
 *.log
 npm-debug.log*
@@ -46,3 +46,8 @@ coverage/
 # OS files
 .DS_Store
 Thumbs.db
+
+node_modules
+dist
+.npmrc
+TODO.md

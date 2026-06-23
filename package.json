@@ -40,6 +40,9 @@
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@commitlint/config-conventional": "^20.4.2",
+    "@nestjs/common": "^11.1.17",
+    "@omnixys/context": "^2.0.0",
+    "@omnixys/logger": "^2.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -48,9 +51,6 @@
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@swc/core": "^1.15.21",
     "@types/node": "^25.6.0",
-    "@nestjs/common": "^11.1.17",
-    "@omnixys/context": "file:../context",
-    "@omnixys/logger": "file:../logger",
     "prettier": "^3.8.1",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-sort-imports": "^1.8.11",
@@ -64,8 +64,8 @@
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.0",
-    "@omnixys/context": "^1.0.0",
-    "@omnixys/logger": "^1.0.0",
+    "@omnixys/context": "^2.0.0",
+    "@omnixys/logger": "^2.0.0",
     "reflect-metadata": "^0.2.2"
   }
 }
