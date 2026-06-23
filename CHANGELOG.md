@@ -3,6 +3,13 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.0.0](https://github.com/omnixys/media/compare/v1.0.0...v2.0.0) (2026-06-23)
+
+### Media
+
+* **Media:** prepare package for production-safe deployments ([](https://github.com/omnixys/media/commit/104d36113aa3774b2423acf6bf828fc9334abd18))
+* **Media:** add streaming multipart and lifecycle APIs ([](https://github.com/omnixys/media/commit/b090e55440fa991afdd3a8ecdfa6cb8c62c96ac6))
+
 ## 1.0.0 (2026-04-28)
 
 ### Media
