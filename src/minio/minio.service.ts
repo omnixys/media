@@ -55,6 +55,8 @@ export class MinioStorageService implements FileStorage, OnModuleDestroy {
         accessKeyId: options.accessKeyId,
         secretAccessKey: options.secretAccessKey,
       },
+      requestChecksumCalculation: 'WHEN_REQUIRED',
+      responseChecksumValidation: 'WHEN_REQUIRED',
     });
   }
 
