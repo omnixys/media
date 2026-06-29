@@ -3,6 +3,16 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.0.2](https://github.com/omnixys/media/compare/v2.0.1...v2.0.2) (2026-06-29)
+
+### Health
+
+* **Health:** fix healthcheck ([](https://github.com/omnixys/media/commit/cce7be873d579cbb04ff9b5a0baba9d0e55103d9))
+
+### Other
+
+* **Other:** Update package.json ([](https://github.com/omnixys/media/commit/1d50285f729fd635c0bbd9e90dcd90643b840ad3))
+
 ## [2.0.0](https://github.com/omnixys/media/compare/v1.0.0...v2.0.0) (2026-06-23)
 
 ### Media
